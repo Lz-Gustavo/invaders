@@ -1,0 +1,6 @@
+/home/lzgustavo/invaders/game/.mono/temp/bin/Tools/invaders.dll
+/home/lzgustavo/invaders/game/.mono/temp/bin/Tools/invaders.pdb
+/home/lzgustavo/invaders/game/.mono/temp/obj/Tools/invaders.csprojResolveAssemblyReference.cache
+/home/lzgustavo/invaders/game/.mono/temp/obj/Tools/invaders.csproj.CoreCompileInputs.cache
+/home/lzgustavo/invaders/game/.mono/temp/obj/Tools/invaders.dll
+/home/lzgustavo/invaders/game/.mono/temp/obj/Tools/invaders.pdb

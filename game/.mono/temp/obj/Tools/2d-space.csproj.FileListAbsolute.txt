@@ -1,0 +1,6 @@
+/home/lzgustavo/invaders/game/.mono/temp/obj/Tools/2d-space.csprojResolveAssemblyReference.cache
+/home/lzgustavo/invaders/game/.mono/temp/obj/Tools/2d-space.csproj.CoreCompileInputs.cache
+/home/lzgustavo/invaders/game/.mono/temp/bin/Tools/2d-space.dll
+/home/lzgustavo/invaders/game/.mono/temp/bin/Tools/2d-space.pdb
+/home/lzgustavo/invaders/game/.mono/temp/obj/Tools/2d-space.dll
+/home/lzgustavo/invaders/game/.mono/temp/obj/Tools/2d-space.pdb
