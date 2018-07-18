@@ -52,7 +52,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\scenes\HUD\HUD.cs" />
     <Compile Include="src\scenes\Main\Main.cs" />
+    <Compile Include="src\scenes\Main\MobFactory.cs" />
+    <Compile Include="src\scenes\Mob\Asteroid\Asteroid.cs" />
+    <Compile Include="src\scenes\Mob\Comet\Comet.cs" />
+    <Compile Include="src\scenes\Mob\Meteor\Meteor.cs" />
     <Compile Include="src\scenes\Mob\Mob.cs" />
+    <Compile Include="src\scenes\Mob\MobInterface.cs" />
     <Compile Include="src\scenes\Player\Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

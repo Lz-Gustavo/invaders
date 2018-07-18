@@ -3,20 +3,11 @@ using System;
 
 public class Main : Node {
 	
-	[Export]
-	public PackedScene Mob;
 	public int Score = 0;
-	private Random rand = new Random();
-	private float PI = 3.1415F;
 	
 	public override void _Ready() { }
 
 //  public override void _Process(float delta) { }
-
-	private float RandRand(float min, float max) {
-		
-		return (float) (rand.NextDouble() * (max - min) + min);
-	}
 	
 	public void GameOver() {
 		
@@ -72,26 +63,16 @@ public class Main : Node {
 	
 	public void OnMobTimerTimeout() {
 		
-		// Choose a random location on Path2D.
-		var mobSpawnLocation = (PathFollow2D) GetNode("MobPath/MobSpawn");
-		mobSpawnLocation.SetOffset(rand.Next());
-	
-		// Create a Mob instance and add it to the scene.
-		var mobInstance = (RigidBody2D) Mob.Instance();
-		AddChild(mobInstance);
-	
-		// Set the mob's direction perpendicular to the path direction.
-		var direction = mobSpawnLocation.Rotation + PI / 2;
-	
-		// Set the mob's position to a random location.
-		mobInstance.Position = mobSpawnLocation.Position;
-	
-		// Add some randomness to the direction.
-		direction += RandRand(-PI / 4, PI / 4);
-		mobInstance.Rotation = direction;
-	
-		// Choose the velocity.
-		mobInstance.SetLinearVelocity(new Vector2(RandRand(150f, 250f), 0).Rotated(direction));
+		var factory = (MobFactory) GetNode("MobPath");
+		
+		var rand = new Random();
+		var choice = rand.Next(100);
+		
+		if (choice < 80 ) {
+			factory.Spawn("asteroid");
+		}
+		else {
+			factory.Spawn("meteor");
+		}
 	}
-	
 }

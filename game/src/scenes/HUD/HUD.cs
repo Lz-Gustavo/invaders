@@ -1,8 +1,8 @@
 using Godot;
 using System;
 
-public class HUD : Godot.CanvasLayer
-{
+public class HUD : Godot.CanvasLayer {
+	
 	[Signal]
 	public delegate void StartGame();
 

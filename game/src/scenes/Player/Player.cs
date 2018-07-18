@@ -2,10 +2,10 @@ using Godot;
 using System;
 
 public class Player : Area2D {
-	
+
 	[Signal]
 	public delegate void Hit();
-
+	
 	public int Speed = 400;
 
 	private Vector2 _screenSize;
@@ -51,13 +51,19 @@ public class Player : Area2D {
 			Mathf.Clamp(Position.y, 0, _screenSize.y)
 		);
 		
-		if (velocity.x != 0) {
+		if (velocity.x > 0) {
 			Sprite.Animation = "right";
-			Sprite.FlipH = velocity.x < 0;
-			Sprite.FlipV = false;
-		} else if(velocity.y != 0) {
+			//Sprite.FlipH = velocity.x < 0;
+			//Sprite.FlipV = false;
+		}
+		else if (velocity.x < 0) {
+			Sprite.Animation = "left";
+			//Sprite.FlipH = velocity.x < 0;
+			//Sprite.FlipV = false;	
+		}
+		else if(velocity.y != 0) {
 			Sprite.Animation = "up";
-			Sprite.FlipV = velocity.y > 0;
+			//Sprite.FlipV = velocity.y > 0;
 		}
 	}
 

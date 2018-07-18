@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/scenes/Main/Main.cs" type="Script" id=1]
-[ext_resource path="res://src/scenes/Mob/Mob.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/background.png" type="Texture" id=2]
 [ext_resource path="res://src/scenes/Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/scenes/HUD/HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://music/House In a Forest Loop.ogg" type="AudioStream" id=5]
-[ext_resource path="res://music/gameover.wav" type="AudioStream" id=6]
+[ext_resource path="res://src/scenes/Main/MobFactory.cs" type="Script" id=4]
+[ext_resource path="res://src/scenes/Mob/Asteroid/Asteroid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/scenes/Mob/Meteor/Meteor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/scenes/HUD/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://music/Double Dragon   02 Arrival of the Black Warriors.ogg" type="AudioStream" id=8]
+[ext_resource path="res://music/gameover.wav" type="AudioStream" id=9]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -17,40 +20,50 @@ _data = {
 [node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
-Mob = ExtResource( 2 )
 
-[node name="Player" parent="." index="0" instance=ExtResource( 3 )]
+[node name="Background" type="Sprite" parent="." index="0"]
 
-[node name="MobTimer" type="Timer" parent="." index="1"]
+position = Vector2( 238.258, 361.841 )
+scale = Vector2( 0.962252, 1.03626 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="MobTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = false
 autostart = false
 
-[node name="ScoreTimer" type="Timer" parent="." index="2"]
+[node name="ScoreTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="StartTimer" type="Timer" parent="." index="3"]
+[node name="StartTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="StartPosition" type="Position2D" parent="." index="4"]
+[node name="StartPosition" type="Position2D" parent="." index="5"]
 
 position = Vector2( 240, 450 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MobPath" type="Path2D" parent="." index="5"]
+[node name="MobPath" type="Path2D" parent="." index="6"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
 curve = SubResource( 1 )
+script = ExtResource( 4 )
+Asteroid = ExtResource( 5 )
+Comet = null
+Meteor = ExtResource( 6 )
 
 [node name="MobSpawn" type="PathFollow2D" parent="MobPath" index="0"]
 
@@ -63,21 +76,25 @@ rotate = true
 cubic_interp = true
 loop = true
 lookahead = 4.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="HUD" parent="." index="6" instance=ExtResource( 4 )]
+[node name="HUD" parent="." index="7" instance=ExtResource( 7 )]
 
-[node name="Music" type="AudioStreamPlayer" parent="." index="7"]
+[node name="Music" type="AudioStreamPlayer" parent="." index="8"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 8 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="DeathSound" type="AudioStreamPlayer" parent="." index="8"]
+[node name="DeathSound" type="AudioStreamPlayer" parent="." index="9"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 9 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
