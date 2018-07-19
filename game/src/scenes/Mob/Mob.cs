@@ -3,6 +3,12 @@ using System;
 
 public abstract class Mob : RigidBody2D, MobInterface {
 	
+	[Signal]
+	public delegate void Hit();
+	
+	private int Damage = 1000;
+	
+	
 	//private String[] _mobTypes = {"walk", "swim", "fly"};
 	private Random rand = new Random();
 	
@@ -18,8 +24,12 @@ public abstract class Mob : RigidBody2D, MobInterface {
 	    //Sprite.Animation = _mobTypes[randomMob.Next(0, _mobTypes.Length)];
 		Sprite.Play();
 	}
+
+	public int getDamage() {
+		return Damage;
+	}
 	
-	public void _on_Visibility_screen_exited() {
+	public void ScreenExited() {
     	QueueFree();
 	}
 }

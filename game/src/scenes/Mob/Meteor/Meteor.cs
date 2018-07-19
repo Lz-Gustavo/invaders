@@ -5,6 +5,7 @@ public class Meteor : Mob {
 
 	private float MinSpeed = 100F;
 	private float MaxSpeed = 150F;
+	private int Damage = 5000;
 	
 	public Vector2 getVelocity(float direction) {
 

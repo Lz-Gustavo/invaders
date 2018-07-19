@@ -70,6 +70,6 @@ scale = Vector2( 0.4, 0.4 )
 rect = Rect2( -10, -10, 20, 20 )
 _sections_unfolded = [ "Transform" ]
 
-[connection signal="screen_exited" from="Visibility" to="." method="_on_Visibility_screen_exited"]
+[connection signal="screen_exited" from="Visibility" to="." method="ScreenExited"]
 
 

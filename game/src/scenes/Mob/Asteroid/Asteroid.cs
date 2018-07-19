@@ -11,6 +11,7 @@ public class Asteroid : Mob {
 	
 	private float MinSpeed = 180F;
 	private float MaxSpeed = 250F;
+	private int Damage = 1000;
 	
 	public Vector2 getVelocity(float direction) {
 

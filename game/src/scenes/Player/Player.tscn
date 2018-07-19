@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/scenes/Player/Player.cs" type="Script" id=1]
-[ext_resource path="res://art/ship/3.png" type="Texture" id=2]
-[ext_resource path="res://art/ship/4.png" type="Texture" id=3]
-[ext_resource path="res://art/ship/5.png" type="Texture" id=4]
-[ext_resource path="res://art/ship/2.png" type="Texture" id=5]
-[ext_resource path="res://art/ship/1.png" type="Texture" id=6]
-[ext_resource path="res://art/ship/0.png" type="Texture" id=7]
+[ext_resource path="res://src/scenes/Player/PlayerDamageAdapter.cs" type="Script" id=2]
+[ext_resource path="res://art/ship/3.png" type="Texture" id=3]
+[ext_resource path="res://art/ship/4.png" type="Texture" id=4]
+[ext_resource path="res://art/ship/5.png" type="Texture" id=5]
+[ext_resource path="res://art/ship/2.png" type="Texture" id=6]
+[ext_resource path="res://art/ship/1.png" type="Texture" id=7]
+[ext_resource path="res://art/ship/0.png" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -17,17 +18,17 @@ height = 5.24337
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "left",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "right",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
@@ -54,6 +55,7 @@ __meta__ = {
 
 position = Vector2( -0.863693, -0.863701 )
 shape = SubResource( 1 )
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
@@ -62,6 +64,6 @@ frames = SubResource( 2 )
 animation = "up"
 _sections_unfolded = [ "Transform" ]
 
-[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+[connection signal="body_entered" from="." to="CollisionShape2D" method="DamagePlayer"]
 
 

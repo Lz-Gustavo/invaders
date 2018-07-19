@@ -101,7 +101,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[connection signal="Hit" from="Player" to="." method="GameOver"]
+[connection signal="Killed" from="Player" to="." method="GameOver"]
 
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
 
