@@ -59,6 +59,7 @@
     <Compile Include="src\scenes\Mob\Mob.cs" />
     <Compile Include="src\scenes\Mob\MobInterface.cs" />
     <Compile Include="src\scenes\Player\Player.cs" />
+    <Compile Include="src\scenes\Player\PlayerController.cs" />
     <Compile Include="src\scenes\Player\PlayerDamageAdapter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
