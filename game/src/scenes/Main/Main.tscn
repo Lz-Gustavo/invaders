@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/scenes/Main/Main.cs" type="Script" id=1]
 [ext_resource path="res://art/background.png" type="Texture" id=2]
 [ext_resource path="res://src/scenes/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/scenes/Main/MobFactory.cs" type="Script" id=4]
 [ext_resource path="res://src/scenes/Mob/Asteroid/Asteroid.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/scenes/Mob/Meteor/Meteor.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/scenes/HUD/HUD.tscn" type="PackedScene" id=7]
-[ext_resource path="res://music/Double Dragon   02 Arrival of the Black Warriors.ogg" type="AudioStream" id=8]
-[ext_resource path="res://music/gameover.wav" type="AudioStream" id=9]
+[ext_resource path="res://src/scenes/Mob/Comet/Comet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/scenes/Mob/Meteor/Meteor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/scenes/HUD/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://music/Double Dragon   02 Arrival of the Black Warriors.ogg" type="AudioStream" id=9]
+[ext_resource path="res://music/gameover.wav" type="AudioStream" id=10]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -17,7 +18,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0.782684, 0.0249481, 0, 0, 0, 0, 479.772, 0.68837, 0, 0, 0, 0, 478.866, 722.069, 0, 0, 0, 0, 2.50378, 725.752, 0, 0, 0, 0, 0.782684, 0.0249481 )
 }
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -62,8 +63,8 @@ self_modulate = Color( 0.5, 0.6, 1, 0.7 )
 curve = SubResource( 1 )
 script = ExtResource( 4 )
 Asteroid = ExtResource( 5 )
-Comet = null
-Meteor = ExtResource( 6 )
+Comet = ExtResource( 6 )
+Meteor = ExtResource( 7 )
 
 [node name="MobSpawn" type="PathFollow2D" parent="MobPath" index="0"]
 
@@ -81,18 +82,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="HUD" parent="." index="7" instance=ExtResource( 7 )]
+[node name="HUD" parent="." index="7" instance=ExtResource( 8 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="." index="8"]
-
-stream = ExtResource( 8 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="DeathSound" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = ExtResource( 9 )
 volume_db = 0.0
@@ -101,7 +93,18 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="DeathSound" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="Killed" from="Player" to="." method="GameOver"]
+
+[connection signal="PlayerHit" from="Player" to="HUD" method="UpdateLife"]
 
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
 

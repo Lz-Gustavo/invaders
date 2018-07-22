@@ -3,18 +3,10 @@ using System;
 
 public class Asteroid : Mob {
 	
-//	[Export]
-//	public int MinSpeed = 150;
-//
-//	[Export]
-//	public int MaxSpeed = 250;
-	
-	private float MinSpeed = 180F;
-	private float MaxSpeed = 250F;
-	private int Damage = 1000;
-	
-	public Vector2 getVelocity(float direction) {
-
-		return (new Vector2(RandRand(MinSpeed, MaxSpeed), 0).Rotated(direction));
+	public override void _Ready() {
+		MinSpeed = 180F;
+		MaxSpeed = 250F;
+		Damage = 1000;
+		StartAnimation();
 	}
 }

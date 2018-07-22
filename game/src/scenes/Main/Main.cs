@@ -6,8 +6,6 @@ public class Main : Node {
 	public int Score = 0;
 	
 	public override void _Ready() { }
-
-//  public override void _Process(float delta) { }
 	
 	public void GameOver() {
 		
@@ -32,7 +30,7 @@ public class Main : Node {
 		Score = 0;
 		var hud = (HUD) GetNode("HUD");
 		hud.UpdateScore(Score);
-		hud.ShowMessage("Get Ready!");
+		hud.ShowMessage("Ready");
 		
 		var player = (Player) GetNode("Player");
 		var startPosition = (Position2D) GetNode("StartPosition");
@@ -68,11 +66,14 @@ public class Main : Node {
 		var rand = new Random();
 		var choice = rand.Next(100);
 		
-		if (choice < 80 ) {
+		if (choice < 60 ) {
 			factory.Spawn("asteroid");
 		}
-		else {
+		else if ((choice >= 60) && (choice < 95)){
 			factory.Spawn("meteor");
+		}
+		else {
+			factory.Spawn("comet");
 		}
 	}
 }

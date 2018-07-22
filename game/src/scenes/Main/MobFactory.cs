@@ -44,9 +44,25 @@ public class MobFactory : Path2D {
 			var velocity = (Vector2) mobInstance.getVelocity(direction);
 			mobInstance.SetLinearVelocity(velocity);
 		}
-		if (type == "meteor") {
+		else if (type == "meteor") {
 			
 			var mobInstance = (Meteor) Meteor.Instance();
+			AddChild(mobInstance);
+			
+			// Set the mob's position to a random location.
+			mobInstance.Position = mobSpawnLocation.Position;
+		
+			// Add some randomness to the direction.
+			direction += RandRand(-PI / 4, PI / 4);
+			mobInstance.Rotation = direction;
+		
+			// Choose the velocity.
+			var velocity = (Vector2) mobInstance.getVelocity(direction);
+			mobInstance.SetLinearVelocity(velocity);
+		}
+		else if (type == "comet") {
+			
+			var mobInstance = (Comet) Comet.Instance();
 			AddChild(mobInstance);
 			
 			// Set the mob's position to a random location.

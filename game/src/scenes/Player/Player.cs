@@ -3,8 +3,8 @@ using System;
 
 public class Player : Area2D {
 
-//	[Signal]
-//	public delegate void PlayerHit();
+	[Signal]
+	public delegate void PlayerHit(int PlayerLife);
 	
 	[Signal]
 	public delegate void Killed();
@@ -89,6 +89,8 @@ public class Player : Area2D {
 		EmitSignal("Killed");
 
 		_collisionCapsule.Disabled = true;
+		PlayerLife = 1000;
+		//QueueFree();
 	}
 	
 	public void Start(Vector2 pos) {
@@ -97,5 +99,9 @@ public class Player : Area2D {
 		Show();
 		var collisionShape2D = (CollisionShape2D) GetNode("CollisionShape2D");
 		collisionShape2D.Disabled = false;
+	}
+	
+	public int getPlayerLife() {
+		return PlayerLife;
 	}
 }

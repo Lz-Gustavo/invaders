@@ -17,6 +17,7 @@ public class PlayerDamageAdapter : CollisionShape2D {
 		
 		var RealDamage = (int) damage / 10;
 		_player.DecreaseLife(RealDamage);
+		_player.EmitSignal("PlayerHit", _player.getPlayerLife());
 	}
 	
 //	private void PlayerBodyEntered(Godot.Object body) {

@@ -1,12 +1,30 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scenes/Mob/Comet/Comet.cs" type="Script" id=1]
+[ext_resource path="res://art/playerGrey_up1.png" type="Texture" id=2]
+[ext_resource path="res://art/playerGrey_up2.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 56.9299
+height = 28.2252
 
 [node name="Comet" type="RigidBody2D"]
 
+scale = Vector2( 0.4, 0.4 )
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 0
 mode = 0
 mass = 1.0
 friction = 1.0
@@ -23,9 +41,25 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 1 )
 animation = "default"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="." index="2"]
+
+rect = Rect2( -10, -10, 20, 20 )
+
+[connection signal="screen_exited" from="VisibilityNotifier" to="." method="ScreenExited"]
 
 
