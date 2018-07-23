@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/scenes/HUD/HUD.cs" type="Script" id=1]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://art/clock.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -72,8 +73,8 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -25.0
-margin_right = 25.0
+margin_left = 140.0
+margin_right = 185.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -86,7 +87,7 @@ text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Margin", "custom_fonts" ]
 
 [node name="MessageLabel" type="Label" parent="." index="1"]
 
@@ -173,6 +174,13 @@ exp_edit = false
 rounded = false
 percent_visible = false
 _sections_unfolded = [ "Margin", "Percent", "Rect", "custom_styles" ]
+
+[node name="clock" type="Sprite" parent="." index="5"]
+
+position = Vector2( 355, 38 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
 

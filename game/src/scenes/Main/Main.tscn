@@ -15,7 +15,7 @@
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0.782684, 0.0249481, 0, 0, 0, 0, 479.772, 0.68837, 0, 0, 0, 0, 478.866, 722.069, 0, 0, 0, 0, 2.50378, 725.752, 0, 0, 0, 0, 0.782684, 0.0249481 )
+"points": PoolVector2Array( 0, 0, 0, 0, 467.23, 109.066, 0, 0, 0, 0, 465.971, -11.6817, 0, 0, 0, 0, -14.5595, -11.0725, 0, 0, 0, 0, 465.63, -11.9887, 0, 0, 0, 0, -14.5156, -11.0677, 0, 0, 0, 0, -14.2202, 109.696 )
 }
 
 [node name="Main" type="Node" index="0"]
@@ -30,6 +30,8 @@ texture = ExtResource( 2 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 240.244, 401.006 )
 
 [node name="MobTimer" type="Timer" parent="." index="2"]
 
@@ -54,12 +56,14 @@ autostart = false
 
 [node name="StartPosition" type="Position2D" parent="." index="5"]
 
-position = Vector2( 240, 450 )
+position = Vector2( 240, 550 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="MobPath" type="Path2D" parent="." index="6"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+position = Vector2( 13.9709, 27.7765 )
+scale = Vector2( 0.999388, 1.10933 )
 curve = SubResource( 1 )
 script = ExtResource( 4 )
 Asteroid = ExtResource( 5 )
@@ -68,13 +72,13 @@ Meteor = ExtResource( 7 )
 
 [node name="MobSpawn" type="PathFollow2D" parent="MobPath" index="0"]
 
-position = Vector2( 0.782684, 0.0249481 )
-rotation = 0.00138504
+position = Vector2( 467.23, 109.066 )
+rotation = -1.58382
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
-rotate = true
-cubic_interp = true
+rotate = false
+cubic_interp = false
 loop = true
 lookahead = 4.0
 _sections_unfolded = [ "Transform" ]

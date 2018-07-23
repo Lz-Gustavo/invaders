@@ -37,7 +37,7 @@ public class MobFactory : Path2D {
 			mobInstance.Position = mobSpawnLocation.Position;
 		
 			// Add some randomness to the direction.
-			direction += RandRand(-PI / 4, PI / 4);
+			direction += RandRand((0.4F * PI), (0.6F * PI));
 			mobInstance.Rotation = direction;
 		
 			// Choose the velocity.
@@ -53,7 +53,7 @@ public class MobFactory : Path2D {
 			mobInstance.Position = mobSpawnLocation.Position;
 		
 			// Add some randomness to the direction.
-			direction += RandRand(-PI / 4, PI / 4);
+			direction += RandRand((0.4F * PI), (0.6F * PI));
 			mobInstance.Rotation = direction + PI/6;
 		
 			// Choose the velocity.
@@ -69,7 +69,7 @@ public class MobFactory : Path2D {
 			mobInstance.Position = mobSpawnLocation.Position;
 		
 			// Add some randomness to the direction.
-			direction += RandRand(-PI / 4, PI / 4);
+			direction += RandRand((0.4F * PI), (0.6F * PI));
 			mobInstance.Rotation = direction - PI/2;
 		
 			// Choose the velocity.

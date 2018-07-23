@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemySwimming_1.png-dd0e11759dc3d624c8a704f6e98a3d80.stex"
+path="res://.import/clock.png-32853f4185d6c0894e704b8f6dcb0b9a.stex"
 
 [deps]
 
-source_file="res://art/enemySwimming_1.png"
-dest_files=[ "res://.import/enemySwimming_1.png-dd0e11759dc3d624c8a704f6e98a3d80.stex" ]
+source_file="res://art/clock.png"
+dest_files=[ "res://.import/clock.png-32853f4185d6c0894e704b8f6dcb0b9a.stex" ]
 
 [params]
 
