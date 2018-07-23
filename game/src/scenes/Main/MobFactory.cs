@@ -54,7 +54,7 @@ public class MobFactory : Path2D {
 		
 			// Add some randomness to the direction.
 			direction += RandRand(-PI / 4, PI / 4);
-			mobInstance.Rotation = direction;
+			mobInstance.Rotation = direction + PI/6;
 		
 			// Choose the velocity.
 			var velocity = (Vector2) mobInstance.getVelocity(direction);
@@ -70,7 +70,7 @@ public class MobFactory : Path2D {
 		
 			// Add some randomness to the direction.
 			direction += RandRand(-PI / 4, PI / 4);
-			mobInstance.Rotation = direction;
+			mobInstance.Rotation = direction - PI/2;
 		
 			// Choose the velocity.
 			var velocity = (Vector2) mobInstance.getVelocity(direction);

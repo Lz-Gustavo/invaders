@@ -1,16 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/scenes/Mob/Asteroid/Asteroid.cs" type="Script" id=1]
-[ext_resource path="res://art/enemyFlyingAlt_1.png" type="Texture" id=2]
-[ext_resource path="res://art/enemyFlyingAlt_2.png" type="Texture" id=3]
+[ext_resource path="res://art/asteroid/0.png" type="Texture" id=2]
+[ext_resource path="res://art/asteroid/1.png" type="Texture" id=3]
+[ext_resource path="res://art/asteroid/2.png" type="Texture" id=4]
+[ext_resource path="res://art/asteroid/3.png" type="Texture" id=5]
+[ext_resource path="res://art/asteroid/4.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "fly",
-"speed": 3.0
+"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -18,11 +21,11 @@ _sections_unfolded = [ "Resource" ]
 
 custom_solver_bias = 0.0
 radius = 81.9886
-height = 4.97702
+height = 5.63901
 
 [node name="Asteroid" type="RigidBody2D"]
 
-position = Vector2( 94.0281, 66.8071 )
+position = Vector2( 95.7678, 66.8071 )
 scale = Vector2( 0.30107, 0.273439 )
 input_pickable = false
 collision_layer = 1
@@ -57,7 +60,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -11.4957, 1.19165 )
+position = Vector2( -1.09436, 0.767471 )
 rotation = 1.5708
 scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 2 )

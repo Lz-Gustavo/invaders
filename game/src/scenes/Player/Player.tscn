@@ -13,29 +13,29 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 60.474
-height = 5.24337
+radius = 60.407
+height = 0.524719
 
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
+"loop": false,
 "name": "left",
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
+"loop": false,
 "name": "right",
-"speed": 7.0
+"speed": 9.0
 }, {
 "frames": [ ExtResource( 3 ) ],
-"loop": true,
+"loop": false,
 "name": "up",
 "speed": 5.0
 } ]
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
 position = Vector2( 237.672, 451.591 )
 scale = Vector2( 0.5, 0.5 )

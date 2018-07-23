@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/scenes/Mob/Comet/Comet.cs" type="Script" id=1]
-[ext_resource path="res://art/playerGrey_up1.png" type="Texture" id=2]
-[ext_resource path="res://art/playerGrey_up2.png" type="Texture" id=3]
+[ext_resource path="res://art/comet/0.png" type="Texture" id=2]
+[ext_resource path="res://art/comet/1.png" type="Texture" id=3]
+[ext_resource path="res://art/comet/2.png" type="Texture" id=4]
+[ext_resource path="res://art/comet/3.png" type="Texture" id=5]
+[ext_resource path="res://art/comet/4.png" type="Texture" id=6]
+[ext_resource path="res://art/comet/5.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "default",
+"name": "fly",
 "speed": 5.0
 } ]
 
@@ -17,7 +21,7 @@ animations = [ {
 
 custom_solver_bias = 0.0
 radius = 56.9299
-height = 28.2252
+height = 57.2467
 
 [node name="Comet" type="RigidBody2D"]
 
@@ -47,7 +51,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
-animation = "default"
+animation = "fly"
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
