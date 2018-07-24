@@ -4,7 +4,7 @@ using System;
 public class PlayerController : AnimatedSprite {
 	
 	private Player Player1;
-	private AnimatedSprite Sprite;
+	//private AnimatedSprite Sprite;
 
 	public override void _Ready() {
 		
@@ -32,8 +32,6 @@ public class PlayerController : AnimatedSprite {
 		if (Input.IsActionPressed("ui_up")) {
 			velocity.y -= 1;
 		}
-	
-		//var Sprite = (AnimatedSprite) GetNode("AnimatedSprite");
 		
 		if (velocity.Length() > 0) {
 			velocity = velocity.Normalized() * Player1.getSpeed();
@@ -51,17 +49,16 @@ public class PlayerController : AnimatedSprite {
 		
 		if (velocity.x > 0) {
 			Animation = "right";
-			//Sprite.FlipH = velocity.x < 0;
-			//Sprite.FlipV = false;
 		}
 		else if (velocity.x < 0) {
-			Animation = "left";
-			//Sprite.FlipH = velocity.x < 0;
-			//Sprite.FlipV = false;	
+			Animation = "left";	
 		}
 		else if(velocity.y != 0) {
 			Animation = "up";
-			//Sprite.FlipV = velocity.y > 0;
-		}      
+		}
+		
+		if (Input.IsActionJustPressed("ui_select")) {
+			Player1.Fire();
+		}
 	}
 }

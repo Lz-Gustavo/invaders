@@ -7,7 +7,8 @@ public class HUD : Godot.CanvasLayer {
 	public delegate void StartGame();
 
 	private Label messageLabel;
-	private Label scoreLabel;
+	private Label timeLabel;
+	private Label rocksLabel;
 	private Button startButton;
 	private Timer messageTimer;
 	private ProgressBar playerHP;
@@ -15,7 +16,8 @@ public class HUD : Godot.CanvasLayer {
 	public override void _Ready() {
 		
 		messageLabel = (Label) GetNode("MessageLabel");
-		scoreLabel = (Label) GetNode("ScoreLabel");
+		timeLabel = (Label) GetNode("TimeLabel");
+		rocksLabel = (Label) GetNode("RocksLabel");
 		messageTimer = (Timer) GetNode("MessageTimer");
 		startButton = (Button) GetNode("StartButton");
 		playerHP = (ProgressBar) GetNode("PlayerHP");
@@ -39,9 +41,9 @@ public class HUD : Godot.CanvasLayer {
 		playerHP.Hide();
 	}
 	
-	public void UpdateScore(int score) {
+	public void UpdateTime(int time) {
 		
-		scoreLabel.Text = score.ToString();
+		timeLabel.Text = time.ToString();
 	}
 	
 	public void OnStartButtonPressed() {
@@ -49,6 +51,10 @@ public class HUD : Godot.CanvasLayer {
 		startButton.Hide();
 		playerHP.Show();
 		EmitSignal("StartGame");
+	}
+	
+	public void UpdateEnemies() {
+		
 	}
 
 	public void OnMessageTimerTimeout() {

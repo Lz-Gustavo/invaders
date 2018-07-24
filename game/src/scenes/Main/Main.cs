@@ -3,7 +3,8 @@ using System;
 
 public class Main : Node {
 	
-	public int Score = 0;
+	private int Time;
+	//private int Score = 0;
 	
 	public override void _Ready() { }
 	
@@ -27,9 +28,9 @@ public class Main : Node {
 	
 	public void NewGame() {
 		
-		Score = 0;
+		Time = 0;
 		var hud = (HUD) GetNode("HUD");
-		hud.UpdateScore(Score);
+		hud.UpdateTime(Time);
 		hud.ShowMessage("Ready");
 		
 		var player = (Player) GetNode("Player");
@@ -45,7 +46,6 @@ public class Main : Node {
 	
 	public void OnStartTimerTimeout() {
 		
-		//timers
 		var mobTimer = (Timer) GetNode("MobTimer");
 		mobTimer.Start();
 		
@@ -54,9 +54,9 @@ public class Main : Node {
 	}
 	
 	public void OnScoreTimerTimeout() {
-		Score += 1;
+		Time += 1;
 		var hud = (HUD) GetNode("HUD");
-		hud.UpdateScore(Score);
+		hud.UpdateTime(Time);
 	}
 	
 	public void OnMobTimerTimeout() {

@@ -25,7 +25,7 @@ public class MobFactory : Path2D {
 		var mobSpawnLocation = (PathFollow2D) GetNode("MobSpawn");
 		mobSpawnLocation.SetOffset(rand.Next());
 	
-		// Set the mob's direction perpendicular to the path direction.
+		// Set the mob's direction perpendicular to the path direction
 		var direction = mobSpawnLocation.Rotation + PI / 2;
 	
 		if (type == "asteroid") {
@@ -33,14 +33,10 @@ public class MobFactory : Path2D {
 			var mobInstance = (Asteroid) Asteroid.Instance();
 			AddChild(mobInstance);
 			
-			// Set the mob's position to a random location.
 			mobInstance.Position = mobSpawnLocation.Position;
-		
-			// Add some randomness to the direction.
 			direction += RandRand((0.4F * PI), (0.6F * PI));
 			mobInstance.Rotation = direction;
-		
-			// Choose the velocity.
+			
 			var velocity = (Vector2) mobInstance.getVelocity(direction);
 			mobInstance.SetLinearVelocity(velocity);
 		}
@@ -49,14 +45,12 @@ public class MobFactory : Path2D {
 			var mobInstance = (Meteor) Meteor.Instance();
 			AddChild(mobInstance);
 			
-			// Set the mob's position to a random location.
 			mobInstance.Position = mobSpawnLocation.Position;
-		
-			// Add some randomness to the direction.
 			direction += RandRand((0.4F * PI), (0.6F * PI));
+			
+			//diferent rotation due to its sprite orientation
 			mobInstance.Rotation = direction + PI/6;
-		
-			// Choose the velocity.
+			
 			var velocity = (Vector2) mobInstance.getVelocity(direction);
 			mobInstance.SetLinearVelocity(velocity);
 		}
@@ -65,14 +59,12 @@ public class MobFactory : Path2D {
 			var mobInstance = (Comet) Comet.Instance();
 			AddChild(mobInstance);
 			
-			// Set the mob's position to a random location.
 			mobInstance.Position = mobSpawnLocation.Position;
-		
-			// Add some randomness to the direction.
 			direction += RandRand((0.4F * PI), (0.6F * PI));
+			
+			//diferent rotation due to its sprite orientation
 			mobInstance.Rotation = direction - PI/2;
-		
-			// Choose the velocity.
+			
 			var velocity = (Vector2) mobInstance.getVelocity(direction);
 			mobInstance.SetLinearVelocity(velocity);
 		}

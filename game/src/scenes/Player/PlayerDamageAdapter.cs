@@ -12,12 +12,15 @@ public class PlayerDamageAdapter : CollisionShape2D {
 	
 	public void DamagePlayer(Godot.Object body) {
 		
-		var structure = (Mob) body;
-		var damage = (int) structure.getDamage();
-		
-		var RealDamage = (int) damage / 10;
-		_player.DecreaseLife(RealDamage);
-		_player.EmitSignal("PlayerHit", _player.getPlayerLife());
+		if (body is Mob) {
+			
+			var structure = (Mob) body;
+			var damage = (int) structure.getDamage();
+
+			var RealDamage = (int) damage / 10;
+			_player.DecreaseLife(RealDamage);
+			_player.EmitSignal("PlayerHit", _player.getPlayerLife());
+		}
 	}
 	
 //	private void PlayerBodyEntered(Godot.Object body) {

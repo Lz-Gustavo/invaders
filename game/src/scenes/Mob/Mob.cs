@@ -3,9 +3,6 @@ using System;
 
 public abstract class Mob : RigidBody2D, MobInterface {
 	
-	[Signal]
-	public delegate void Hit();
-	
 	protected float MinSpeed;
 	protected float MaxSpeed;
 	protected int Damage;
@@ -19,7 +16,6 @@ public abstract class Mob : RigidBody2D, MobInterface {
 	protected void StartAnimation() {
 		var Sprite = (AnimatedSprite) GetNode("AnimatedSprite");
 		Sprite.Play();
-	
 	}
 	
 	public int getDamage() {

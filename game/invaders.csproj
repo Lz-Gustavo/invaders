@@ -58,6 +58,7 @@
     <Compile Include="src\scenes\Mob\Meteor\Meteor.cs" />
     <Compile Include="src\scenes\Mob\Mob.cs" />
     <Compile Include="src\scenes\Mob\MobInterface.cs" />
+    <Compile Include="src\scenes\Player\Bullet.cs" />
     <Compile Include="src\scenes\Player\Player.cs" />
     <Compile Include="src\scenes\Player\PlayerController.cs" />
     <Compile Include="src\scenes\Player\PlayerDamageAdapter.cs" />

@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/scenes/Player/Player.cs" type="Script" id=1]
-[ext_resource path="res://src/scenes/Player/PlayerDamageAdapter.cs" type="Script" id=2]
-[ext_resource path="res://art/ship/3.png" type="Texture" id=3]
-[ext_resource path="res://art/ship/4.png" type="Texture" id=4]
-[ext_resource path="res://art/ship/5.png" type="Texture" id=5]
-[ext_resource path="res://art/ship/2.png" type="Texture" id=6]
-[ext_resource path="res://art/ship/1.png" type="Texture" id=7]
-[ext_resource path="res://art/ship/0.png" type="Texture" id=8]
-[ext_resource path="res://src/scenes/Player/PlayerController.cs" type="Script" id=9]
+[ext_resource path="res://src/scenes/Player/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/Player/PlayerDamageAdapter.cs" type="Script" id=3]
+[ext_resource path="res://art/ship/3.png" type="Texture" id=4]
+[ext_resource path="res://art/ship/4.png" type="Texture" id=5]
+[ext_resource path="res://art/ship/5.png" type="Texture" id=6]
+[ext_resource path="res://art/ship/2.png" type="Texture" id=7]
+[ext_resource path="res://art/ship/1.png" type="Texture" id=8]
+[ext_resource path="res://art/ship/0.png" type="Texture" id=9]
+[ext_resource path="res://src/scenes/Player/PlayerController.cs" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -19,17 +20,17 @@ height = 0.524719
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "left",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": false,
 "name": "right",
 "speed": 9.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "up",
 "speed": 5.0
@@ -51,19 +52,20 @@ _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
+Projectile = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 position = Vector2( -0.863693, -0.863701 )
 shape = SubResource( 1 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
 animation = "up"
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="." to="CollisionShape2D" method="DamagePlayer"]
