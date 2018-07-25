@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/destroy.wav-1a1c2fa24f230d9f9f9ee582a4bb83f3.sample"
+
+[deps]
+
+source_file="res://music/destroy.wav"
+dest_files=[ "res://.import/destroy.wav-1a1c2fa24f230d9f9f9ee582a4bb83f3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

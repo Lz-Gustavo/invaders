@@ -27,13 +27,19 @@ public class Bullet : RigidBody2D {
 		
 		var collisionShape2D = (CollisionShape2D) GetNode("CollisionShape2D");
 		collisionShape2D.Disabled = false;
+		
+		var sound = (AudioStreamPlayer2D) GetNode("Shot");
+		sound.Play();
 	} 
 	
 	public void DestroyMob(Godot.Object body) {
  		
 		if (body is Mob) {
+			var mainInstance = (Main) GetParent();
+			mainInstance.IncreaseScore();
+			
 			var rock = (Mob) body;
-			rock.ScreenExited();
+			rock.Destroy();
 			
 			//destroy its own instance too
 			ScreenExited();

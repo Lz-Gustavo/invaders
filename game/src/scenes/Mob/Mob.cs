@@ -26,6 +26,15 @@ public abstract class Mob : RigidBody2D, MobInterface {
     	QueueFree();
 	}
 	
+	public void Destroy() {
+		var sound = (AudioStreamPlayer2D) GetNode("Destroyed");
+		sound.Play();
+
+		var collisionShape2D = (CollisionShape2D) GetNode("CollisionShape2D");
+		collisionShape2D.Disabled = true;
+		Hide();
+	}
+	
 	public Vector2 getVelocity(float direction) {
 
 		return (new Vector2(RandRand(MinSpeed, MaxSpeed), 0).Rotated(direction));

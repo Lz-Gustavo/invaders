@@ -4,7 +4,7 @@ using System;
 public class Main : Node {
 	
 	private int Time;
-	//private int Score = 0;
+	private int Score = 0;
 	
 	public override void _Ready() { }
 	
@@ -75,5 +75,10 @@ public class Main : Node {
 		else {
 			factory.Spawn("comet");
 		}
+	}
+	public void IncreaseScore() {
+		Score += 1;
+		var hud = (HUD) GetNode("HUD");
+		hud.UpdateEnemies(Score);
 	}
 }

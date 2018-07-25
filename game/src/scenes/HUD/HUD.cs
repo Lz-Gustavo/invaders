@@ -53,8 +53,9 @@ public class HUD : Godot.CanvasLayer {
 		EmitSignal("StartGame");
 	}
 	
-	public void UpdateEnemies() {
+	public void UpdateEnemies(int score) {
 		
+		rocksLabel.Text = score.ToString();
 	}
 
 	public void OnMessageTimerTimeout() {

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/scenes/HUD/HUD.cs" type="Script" id=1]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://art/clock.png" type="Texture" id=3]
+[ext_resource path="res://art/score.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -57,7 +58,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width" ]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -73,8 +74,8 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = 140.0
-margin_right = 185.0
+margin_left = 105.0
+margin_right = 150.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -95,8 +96,8 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -180.0
-margin_right = -185.0
+margin_left = -185.0
+margin_right = -140.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -128,7 +129,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "eae men kk"
+text = "Invaders 2D"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -199,9 +200,16 @@ _sections_unfolded = [ "Margin", "Percent", "Rect", "custom_styles" ]
 
 [node name="Clock" type="Sprite" parent="." index="6"]
 
-position = Vector2( 355, 38 )
+position = Vector2( 320, 38 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Score" type="Sprite" parent="." index="7"]
+
+position = Vector2( 30, 38 )
+scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]

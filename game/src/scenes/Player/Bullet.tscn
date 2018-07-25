@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scenes/Player/Bullet.cs" type="Script" id=1]
 [ext_resource path="res://art/cannon2.png" type="Texture" id=2]
+[ext_resource path="res://music/shot.wav" type="AudioStream" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -67,6 +68,17 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 0.8, 1 )
 rect = Rect2( -10, -10, 20, 20 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 3 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="body_entered" from="." to="." method="DestroyMob"]
 

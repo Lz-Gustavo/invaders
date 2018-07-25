@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/scenes/Mob/Comet/Comet.cs" type="Script" id=1]
 [ext_resource path="res://art/comet/0.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://art/comet/3.png" type="Texture" id=5]
 [ext_resource path="res://art/comet/4.png" type="Texture" id=6]
 [ext_resource path="res://art/comet/5.png" type="Texture" id=7]
+[ext_resource path="res://music/destroy.wav" type="AudioStream" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -63,6 +64,17 @@ _sections_unfolded = [ "Transform" ]
 [node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="." index="2"]
 
 rect = Rect2( -10, -10, 20, 20 )
+
+[node name="Destroyed" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 8 )
+volume_db = 20.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="screen_exited" from="VisibilityNotifier" to="." method="ScreenExited"]
 
