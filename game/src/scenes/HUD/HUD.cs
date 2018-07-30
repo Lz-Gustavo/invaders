@@ -1,3 +1,10 @@
+/*	Invaders 2D game using Godot							*/
+/*											*/
+/*	"HUD.cs" is the main user interface elements of game, implements a simple	*/
+/*	API used by other classes to modify score numbers and the player health bar.	*/
+/*											*/
+/*	developed by: LzGustavo						July/2018	*/
+
 using Godot;
 using System;
 

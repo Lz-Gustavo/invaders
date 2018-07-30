@@ -1,3 +1,12 @@
+/*	Invaders 2D game using Godot							*/
+/*											*/
+/*	"Player.cs" is attached to the main node on the Player.tscn scene and is	*/
+/*	responsible for implementing the main state changing functions of the Player, 	*/
+/*	containing its status attributes, start-up and destruction procedures.		*/
+/*	Interacts with "PlayerController.cs" and "PlayerDamageAdapter.cs".		*/
+/*											*/
+/*	developed by: LzGustavo						July/2018	*/
+
 using Godot;
 using System;
 
@@ -19,28 +28,29 @@ public class Player : Area2D {
 	private CollisionShape2D _collisionCapsule;
 	
 	public override void _Ready() {
+
 		_screenSize = GetViewport().GetSize();
 		_collisionCapsule = (CollisionShape2D) GetNode("CollisionShape2D");
 		Hide();
 	}
 
 	public void DecreaseLife(int damage) {
+
 		PlayerLife = PlayerLife - damage;
-		
 		if (PlayerLife <= 0) {
 			PlayerDied();
-		}		
-		//must implement here some animatated vanishing for the player, so he wont get hit again till some time
+		}
 	}
 
 	private void PlayerDied() {
+		// just hides player object and restores its hp, dont need to delete
+		// and instanciate again
 
-		Hide(); // Player disappears after being killed
+		Hide();
 		EmitSignal("Killed");
 
 		_collisionCapsule.Disabled = true;
 		PlayerLife = 1000;
-		//QueueFree();
 	}
 	
 	public void Start(Vector2 pos) {

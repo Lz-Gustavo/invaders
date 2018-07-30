@@ -1,9 +1,17 @@
+/*	Invaders 2D game using Godot							*/
+/*											*/
+/*	"PlayerDamageAdapter.cs" is the implementation of the adapter design pattern.	*/
+/* 	Attached to the player collision sphere, it is called on every collision with	*/
+/*	a Mob object, translating its life damage into the player s life scale and	*/
+/*	calling the Player::DecreaseLife with the correct value.			*/
+/*											*/
+/*	developed by: LzGustavo						July/2018	*/
+
 using Godot;
 using System;
 
 public class PlayerDamageAdapter : CollisionShape2D {
 
-	// maybe its better declare here than get Node everytime
 	private Player _player;
 	
 	public override void _Ready() {
@@ -22,15 +30,4 @@ public class PlayerDamageAdapter : CollisionShape2D {
 			_player.EmitSignal("PlayerHit", _player.getPlayerLife());
 		}
 	}
-	
-//	private void PlayerBodyEntered(Godot.Object body) {
-//
-//		Hide(); // Player disappears after being hit.
-//		EmitSignal("Hit");
-//
-//		// For the sake of this example, but it's better to create a class var
-//		// then assign the variable inside _Ready()
-//		var collisionShape2D = (CollisionShape2D) GetNode("CollisionShape2D");
-//		collisionShape2D.Disabled = true;
-//	}
 }

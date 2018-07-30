@@ -1,3 +1,12 @@
+/*	Invaders 2D game using Godot							*/
+/*											*/
+/*	"Main.cs" is the main scene of the game. Being active on the whole course of	*/
+/*	it, the class implements some core procedures of starting a new game, finishing */
+/*	the state of an active game, managing of the HUD score elements and calls to	*/
+/*	MobFactory::Spawn to create new mobs on every tick of the MobTimer.		*/
+/*											*/
+/*	developed by: LzGustavo						July/2018	*/
+
 using Godot;
 using System;
 
@@ -6,7 +15,7 @@ public class Main : Node {
 	private int Time;
 	private int Score = 0;
 	
-	public override void _Ready() { }
+	public override void _Ready() {}
 	
 	public void GameOver() {
 		

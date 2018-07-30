@@ -1,3 +1,14 @@
+/*	Invaders 2D game using Godot							*/
+/*											*/
+/*	"PlayerController.cs" is attached to the animation child node of the player	*/
+/*	scene, it represents an implementation of the MVC pattern. Being the controller,*/
+/*	the class is responsible for interp. keyboard inputs that result in a state	*/
+/*	change for the model (player class) and the view (animated sprite class		*/
+/*	attached on the controller), providing an easy-to-modify interface and		*/
+/*	modularity for the game code.							*/
+/*											*/
+/*	developed by: LzGustavo						July/2018	*/
+
 using Godot;
 using System;
 

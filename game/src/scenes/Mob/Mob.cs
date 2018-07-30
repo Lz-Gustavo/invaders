@@ -1,3 +1,11 @@
+/*	Invaders 2D game using Godot							*/
+/*											*/
+/*	"Mob.cs" is the template code for every enemie mob spawned in the game, it is	*/
+/*	specialized on Asteroids, Meteors or Comets depending on the Rand option	*/
+/*	choosed on "Main.cs" and consequently created on "MobFactory.cs".		*/
+/*											*/
+/*	developed by: LzGustavo						July/2018	*/
+
 using Godot;
 using System;
 
@@ -9,7 +17,6 @@ public abstract class Mob : RigidBody2D, MobInterface {
 	protected Random rand = new Random();
 	
 	protected float RandRand(float min, float max) {
-		
 		return (float) (rand.NextDouble() * (max - min) + min);
 	}
 	
@@ -23,10 +30,11 @@ public abstract class Mob : RigidBody2D, MobInterface {
 	}
 	
 	public void ScreenExited() {
-    	QueueFree();
+		QueueFree();
 	}
 	
 	public void Destroy() {
+
 		var sound = (AudioStreamPlayer2D) GetNode("Destroyed");
 		sound.Play();
 
@@ -36,7 +44,6 @@ public abstract class Mob : RigidBody2D, MobInterface {
 	}
 	
 	public Vector2 getVelocity(float direction) {
-
 		return (new Vector2(RandRand(MinSpeed, MaxSpeed), 0).Rotated(direction));
 	}
 }

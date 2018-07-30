@@ -1,9 +1,18 @@
+/*	Invaders 2D game using Godot							*/
+/*											*/
+/*	"MobFactory.cs" as the name implies, implements the Factory design pattern in 	*/
+/*	order to facilitate the mobs creation during the course of the game. It sets	*/
+/*	some specific trajectory rotation for each mob and creates them on a random	*/
+/*	point following the 2D Path node that it is attached.				*/
+/*											*/
+/*	developed by: LzGustavo						July/2018	*/
+
 using Godot;
 using System;
 
 public class MobFactory : Path2D {
 	
-    [Export]
+    	[Export]
 	public PackedScene Asteroid;
 	
 	[Export]
@@ -16,7 +25,6 @@ public class MobFactory : Path2D {
 	private float PI = 3.1415F;
 
 	private float RandRand(float min, float max) {
-
 		return (float) (rand.NextDouble() * (max - min) + min);
 	}
 	

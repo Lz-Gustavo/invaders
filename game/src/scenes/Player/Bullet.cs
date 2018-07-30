@@ -1,18 +1,24 @@
+/*	Invaders 2D game using Godot							*/
+/*											*/
+/*	"Bullet.cs" implements the projectile object fired by the player to hit the	*/
+/*	mobs coming towards him, it has the main trajectory calculations to move	*/
+/*	in the right direction with a pre-defined speed.				*/
+/*											*/
+/*	developed by: LzGustavo						July/2018	*/
+
 using Godot;
 using System;
 
 public class Bullet : RigidBody2D {
 	
 	private float Speed = 500F;
-	
 	private float PI = 3.1415F;
 	
 	public void ScreenExited() {
 		QueueFree();
 	}
 	
-	public Vector2 getVelocity(float direction) {
-		
+	public Vector2 getVelocity(float direction) {	
 		return (new Vector2(Speed, 0).Rotated(direction));
 	}
 
