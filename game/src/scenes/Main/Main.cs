@@ -42,6 +42,9 @@ public class Main : Node {
 		hud.UpdateTime(Time);
 		hud.ShowMessage("Ready");
 		
+		Score = 0;
+		hud.UpdateEnemies(Score);
+		
 		var player = (Player) GetNode("Player");
 		var startPosition = (Position2D) GetNode("StartPosition");
 		player.Start(startPosition.Position);
