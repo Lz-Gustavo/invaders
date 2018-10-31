@@ -1,4 +1,4 @@
-#Invaders Game - Built using Godot Game Engine
+# Invaders Game - Built using Godot Game Engine
 Sample project of a 2D space shooter game aimed to be a practical application of design patterns in source development.
 
 ## Patterns applied on the game development
