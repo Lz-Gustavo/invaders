@@ -12,7 +12,7 @@ using System;
 
 public class MobFactory : Path2D {
 	
-    	[Export]
+    [Export]
 	public PackedScene Asteroid;
 	
 	[Export]
