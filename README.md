@@ -1,31 +1,31 @@
 #Invaders Game - Built using Godot Game Engine
 Sample project of a 2D space shooter game aimed to be a practical application of design patterns in source development.
 
-##Patterns applied on the game development
+## Patterns applied on the game development
 	
-###Creational:
+### Creational:
 * Factory
 
-###Structural:
+### Structural:
 * Adapter
 
-###Behavioral:
+### Behavioral:
 * Template
 * MVC (not from GoF)
 
-##Run the game
+## Run the game
 Game executables are avaiable for Windows10 and Ubuntu_x86_64 at /dist folder.
 
-##Prerequisites
+## Prerequisites
 
-###install Mono environment
+### install Mono environment
 
 	Ubuntu/Debian one line command:
 	```
 		sudo apt-get update & sudo apt-get install mono-devel
 	```
 
-###set up godot game engine by one of these methods:
+### set up godot game engine by one of these methods:
 	
 	--> compile the source code in: /invaders/libs-godot/ following the guide 
 	avaiable at:
@@ -37,7 +37,7 @@ Game executables are avaiable for Windows10 and Ubuntu_x86_64 at /dist folder.
 	https://godotengine.org/download/linux
 	```
 
-###open the project inside /invaders/game/
+### open the project inside /invaders/game/
 
 
 For more information about the game-engine, check: http://docs.godotengine.org/en/3.0/index.html
